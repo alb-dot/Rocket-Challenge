@@ -1,4 +1,4 @@
-#include<iostream>
+#include <iostream>
 #include "RocketFunctions.h"
 
 using namespace std;
@@ -17,8 +17,9 @@ void spike(int t)
     Spike
     Fill with empty spaces until meeting the center of the rocket.
     */
+    int count = t - 1;
 
-    for(int s=1;s<=t-1;s++) 
+    for(int s = 1; s <= count; s++) 
     {
         cout<<" ";
     }
@@ -42,13 +43,17 @@ void rocket_body(int t)
     
     Nested loops has been applied to solve this process.
     */
-    for(int r=1;r<=t;r++)
+    int count = t - 1;
+
+    for(int r = 1; r <= t; r++)
     {
-        for(int c=t-1;c>=r;c--)
+        int pattern = 2*r - 1;
+
+        for(int c = count; c >= r; c--)
         {
             cout<<" ";
         }
-        for(int x=1;x<=(2*r-1);x++) 
+        for(int x = 1; x <= pattern; x++) 
         {
             cout<<"X";
         }
@@ -66,13 +71,17 @@ void r_rocket_body(int t)
     Follows the same rule as the FUNCTION rocket_body.
     Just changes one line of code to turn it upside-down.
     */
-    for(int r=t;r>=1;r--)
+    int count = t - 1;
+
+    for(int r = t; r >= 1; r--)
     {
-        for(int c=t-1;c>=r;c--)
+        int pattern = 2*r - 1;
+        
+        for(int c = count; c >= r; c--)
         {
             cout<<" ";
         }
-        for(int x=1;x<=(2*r-1);x++)
+        for(int x = 1; x <= pattern; x++)
         {
             cout<<"X";
         }
@@ -92,9 +101,11 @@ void feet(int t)
     2-Center column is the same as the value of "t" which is the total number of rows of rocket body
     3-Far right is the last column. It can be obtained with the succession from the Body: (2*t-1)
     */
-    for(int f=1;f<=(2*t-1);f++)
+    int pattern= 2*t - 1;
+
+    for(int f = 1; f <= pattern; f++)
     {
-        if(f==1 || f==t || f== (2*t-1))
+        if(f==1 || f == t || f == pattern)
         {
             cout<<"X";
         }
